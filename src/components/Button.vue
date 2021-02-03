@@ -19,5 +19,9 @@ export default {
 	color: #fff;
 	background: none;
 	cursor: pointer;
+	&:hover {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+		transition: 0.2s ease-in-out;
+	}
 }
 </style>
