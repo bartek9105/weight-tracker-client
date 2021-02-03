@@ -47,18 +47,23 @@
 					class="header__weight-stats-form__input"
 				/>
 			</div>
-			<button type="submit">Add</button>
 		</form>
+		<Button>Add</Button>
 	</header>
 </template>
 
 <script>
+import Button from '@/components/Button'
+
 export default {
-	name: 'Hero'
+	name: 'Hero',
+	components: {
+		Button
+	}
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
 	width: 100%;
 	height: 300px;
@@ -70,6 +75,8 @@ export default {
 	&__weight-stats-form {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: 0 1rem;
 		.input-container {
 			display: flex;
 			flex-direction: column;
