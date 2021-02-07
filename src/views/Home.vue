@@ -27,6 +27,16 @@ export default {
 						label: 'Weight',
 						backgroundColor: '#f87979',
 						data: []
+					},
+					{
+						label: 'Fat',
+						backgroundColor: '#fbab7e',
+						data: []
+					},
+					{
+						label: 'Muscles',
+						backgroundColor: '#f345f1',
+						data: []
 					}
 				]
 			}
@@ -47,6 +57,8 @@ export default {
 			this.stats.map((statsEl) => {
 				this.chartdata.labels.push(new Date(statsEl.createdAt).toDateString())
 				this.chartdata.datasets[0].data.push(statsEl.weight)
+				this.chartdata.datasets[1].data.push(statsEl.fat)
+				this.chartdata.datasets[2].data.push(statsEl.muscleMass)
 			})
 		}
 	},
