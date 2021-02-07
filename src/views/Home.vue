@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<Hero />
-		<Chart v-if="!isLoading" :chart-stats="chartdata" />
+		<Hero class="hero" />
+		<Chart v-if="!isLoading" :chart-stats="chartdata" class="chart" />
 	</div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
 		return {
 			isLoading: true,
 			stats: [],
+			addedStats: {},
 			chartdata: {
 				labels: [],
 				datasets: [
@@ -60,6 +61,9 @@ export default {
 				this.chartdata.datasets[1].data.push(statsEl.fat)
 				this.chartdata.datasets[2].data.push(statsEl.muscleMass)
 			})
+		},
+		emitedStats(stats) {
+			this.addedStats = stats
 		}
 	},
 	mounted() {
@@ -68,4 +72,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.hero {
+	margin-bottom: 5rem;
+}
+</style>

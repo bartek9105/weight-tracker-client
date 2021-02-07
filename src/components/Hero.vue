@@ -9,6 +9,7 @@
 					type="number"
 					name="weight"
 					class="header__weight-stats-form__input"
+					v-model="stats.weight"
 				/>
 			</div>
 			<div class="input-container">
@@ -17,6 +18,7 @@
 					type="number"
 					name="bmi"
 					class="header__weight-stats-form__input"
+					v-model="stats.bmi"
 				/>
 			</div>
 			<div class="input-container">
@@ -25,6 +27,7 @@
 					type="number"
 					name="fat"
 					class="header__weight-stats-form__input"
+					v-model="stats.fat"
 				/>
 			</div>
 			<div class="input-container">
@@ -35,6 +38,7 @@
 					type="number"
 					name="muscleMass"
 					class="header__weight-stats-form__input"
+					v-model="stats.muscleMass"
 				/>
 			</div>
 			<div class="input-container">
@@ -45,20 +49,42 @@
 					type="number"
 					name="water"
 					class="header__weight-stats-form__input"
+					v-model="stats.water"
 				/>
 			</div>
 		</form>
-		<Button>Add</Button>
+		<Button @click.native="addStats">Add</Button>
 	</header>
 </template>
 
 <script>
 import Button from '@/components/Button'
+import axios from 'axios'
 
 export default {
 	name: 'Hero',
 	components: {
 		Button
+	},
+	data() {
+		return {
+			stats: {
+				weight: null,
+				bmi: null,
+				fat: null,
+				muscleMass: null,
+				water: null
+			}
+		}
+	},
+	methods: {
+		async addStats() {
+			try {
+				await axios.post('http://localhost:5000/api/v1/stats', this.stats)
+			} catch (error) {
+				console.log(error)
+			}
+		}
 	}
 }
 </script>
