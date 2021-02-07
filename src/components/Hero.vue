@@ -53,6 +53,7 @@
 				/>
 			</div>
 		</form>
+		<p v-if="error" class="header__error">{{ error }}</p>
 		<Button @click.native="addStats">Add</Button>
 	</header>
 </template>
@@ -74,15 +75,17 @@ export default {
 				fat: null,
 				muscleMass: null,
 				water: null
-			}
+			},
+			error: null
 		}
 	},
 	methods: {
 		async addStats() {
 			try {
 				await axios.post('http://localhost:5000/api/v1/stats', this.stats)
+				this.error = null
 			} catch (error) {
-				console.log(error)
+				this.error = error.response.data.error
 			}
 		}
 	}
@@ -121,6 +124,10 @@ export default {
 			padding: 0 0.5rem;
 			height: 35px;
 		}
+	}
+	&__error {
+		color: #fff;
+		margin-bottom: 1rem;
 	}
 }
 </style>
