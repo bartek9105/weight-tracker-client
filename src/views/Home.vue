@@ -46,7 +46,9 @@ export default {
 	methods: {
 		async fetchWeightStats() {
 			try {
-				const statsData = await axios.get('http://localhost:5000/api/v1/stats')
+				const statsData = await axios.get(
+					`${process.env.VUE_APP_API_URL}/stats`
+				)
 				this.stats = statsData.data.stats
 				this.setChartData()
 				this.isLoading = false

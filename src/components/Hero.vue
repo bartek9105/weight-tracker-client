@@ -82,7 +82,7 @@ export default {
 	methods: {
 		async addStats() {
 			try {
-				await axios.post('http://localhost:5000/api/v1/stats', this.stats)
+				await axios.post(`${process.env.VUE_APP_API_URL}/stats`, this.stats)
 				this.error = null
 			} catch (error) {
 				this.error = error.response.data.error
