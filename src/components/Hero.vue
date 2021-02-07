@@ -91,22 +91,24 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-	width: 100%;
-	height: 300px;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	width: 100%;
 	background-color: #fbab7e;
 	background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+	padding: 3rem 1rem;
 	&__weight-stats-form {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		flex-wrap: wrap;
-		padding: 0 1rem;
+		margin-bottom: 3rem;
 		.input-container {
 			display: flex;
 			flex-direction: column;
 			margin-right: 1rem;
+			margin-bottom: 1rem;
 		}
 		&__label {
 			color: #fff;
